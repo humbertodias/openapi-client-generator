@@ -1,0 +1,17 @@
+{
+  "java11": true,
+  "generateForOpenFeign": true,
+  "dateLibrary": "legacy",
+  "defaultInterfaces": false,
+  "useGzipFeature": false,
+  "wiremock": true,
+  "springBootVersion": "2.6.5",
+  "withXml": true,
+  "apiPackage":"com.company.rates.swagger.api",
+  "modelPackage":"com.company.rates.swagger.model",
+  "invokerPackage":"com.company.rates.swagger.invoker",
+  "groupId":"com.company",
+  "artifactId":"rates-cli-api",
+  "artifactVersion":"0.0.1-SNAPSHOT",
+  "hideGenerationTimestamp": true
+}

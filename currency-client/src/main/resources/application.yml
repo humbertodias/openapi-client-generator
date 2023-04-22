@@ -1,0 +1,16 @@
+server:
+    port: 8007
+
+feign:
+    client:
+        config:
+            default:
+                loggerLevel: full
+logging:
+    level:
+        com:
+            company:
+                client: DEBUG
+
+openAPIDefinition:
+    url: http://localhost:8006
