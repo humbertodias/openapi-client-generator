@@ -1,4 +1,4 @@
-[Service](./currency-server/README.md)
+[Service](./currency-service/README.md)
 
 [BFF](./currency-bff/README.md)
 
