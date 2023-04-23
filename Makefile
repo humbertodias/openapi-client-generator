@@ -35,6 +35,9 @@ package:	api
 build: package
 	docker-compose build --parallel
 
+network-rm:
+	docker network ls --filter=name="openapi-*" -q | xargs -r docker network rm
+
 run:
 	docker-compose up
 
