@@ -6,6 +6,8 @@ services:
     build: currency-service
     ports:
       - "8006:8006"
+    networks:
+      - back
 
   currency-bff:
     build: currency-bff
@@ -16,6 +18,8 @@ services:
       - OPENAPIDEFINITION_URL=http://currency-service:8006
     ports:
       - "8007:8007"
+    networks:
+      - back
 
   currency-front:
     build: currency-front
@@ -24,4 +28,12 @@ services:
         condition: service_healthy
     ports:
       - "3000:3000"
+    networks:
+      - front
+      - back
 
+networks:
+  front:
+    driver: bridge
+  back:
+    driver: bridge
