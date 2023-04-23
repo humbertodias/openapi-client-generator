@@ -1,19 +1,26 @@
-Requirements
+### Requirements
 
 * java 11
 * docker
 * docker-compose
 * mvn 3
 
-Run
+### Run
 
     make build run
 
-Get
+### Get
 
-    curl localhost:8006/rates/BRL
+* Currencies
+```
+curl http://localhost:8007/client/charCodes
+```
+* Rate
+```
+curl http://localhost:8007/client/BRL
+```
 
-Doc
+### Doc
 
 * [Service](./currency-service/README.md)
 * [BFF](./currency-bff/README.md)
