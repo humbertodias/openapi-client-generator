@@ -13,11 +13,11 @@
 
 * Currencies
 ```
-curl http://localhost:8007/client/charCodes
+curl http://localhost:8007/bff/currency
 ```
 * Rate
 ```
-curl http://localhost:8007/client/BRL
+curl http://localhost:8007/bff/rate/BRL
 ```
 
 ### Doc

@@ -15,7 +15,7 @@ logging:
 openAPIDefinition:
     url: http://localhost:8006
 
-client:
+bff:
     rest:
         api:
-            prefix: client
+            prefix: bff

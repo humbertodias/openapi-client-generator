@@ -13,16 +13,16 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(path = "${client.rest.api.prefix}")
+@RequestMapping(path = "${bff.rest.api.prefix}")
 public class CurrencyController {
     private final RateControllerApiClient rateControllerApiClient;
 
-    @GetMapping("/{charCode}")
+    @GetMapping("/rate/{charCode}")
     public ResponseEntity<CurrencyRate> getRateByCharCode(@PathVariable String charCode) {
         return rateControllerApiClient.getRateByCharCode(charCode);
     }
 
-    @GetMapping("/charCodes")
+    @GetMapping("/currency")
     public ResponseEntity<List<String>> getCharCodes() {
         return rateControllerApiClient.getCharCodes();
     }
