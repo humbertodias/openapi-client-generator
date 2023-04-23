@@ -1,11 +1,12 @@
-CODEGEN_VERSION=$(shell curl -s https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/maven-metadata.xml | grep latest | cut -d ">" -f 2 | cut -d "<" -f 1)
+CODEGEN_MAVEN_URL=https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli
+CODEGEN_VERSION=$(shell curl -s $CODEGEN_MAVEN_URL/maven-metadata.xml | grep latest | cut -d ">" -f 2 | cut -d "<" -f 1)
 
 version:
 	@echo ${CODEGEN_VERSION}
 	@echo https://github.com/swagger-api/swagger-codegen/releases/tag/v${CODEGEN_VERSION}
 
 download:
-	curl -o swagger-codegen-cli.jar https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/${CODEGEN_VERSION}/swagger-codegen-cli-${CODEGEN_VERSION}.jar
+	curl -o swagger-codegen-cli.jar $CODEGEN_MAVEN_URL/${CODEGEN_VERSION}/swagger-codegen-cli-${CODEGEN_VERSION}.jar
 
 help:
 	java -jar swagger-codegen-cli.jar generate --help
@@ -30,3 +31,15 @@ clean:
 
 package:	api
 	mvn package
+
+build: package
+	docker-compose build --parallel
+
+run:
+	docker-compose up
+
+stop:
+	docker-compose down -v
+
+rmi:
+	docker images --filter=reference="currency-*" -q | xargs -r docker rmi -f

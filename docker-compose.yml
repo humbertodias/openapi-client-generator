@@ -1,18 +1,27 @@
 version: '3.8'
 
 services:
+
   currency-service:
     build: currency-service
     ports:
       - "8006:8006"
-  currency-client:
-    build: currency-client
-    restart: on-failure
+
+  currency-bff:
+    build: currency-bff
     depends_on:
       currency-service:
         condition: service_healthy
     environment:
       - OPENAPIDEFINITION_URL=http://currency-service:8006
-    command: "java -jar /run/client.jar BRL"
     ports:
       - "8007:8007"
+
+  currency-front:
+    build: currency-front
+    depends_on:
+      currency-bff:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+

@@ -14,3 +14,8 @@ logging:
 
 openAPIDefinition:
     url: http://localhost:8006
+
+client:
+    rest:
+        api:
+            prefix: client

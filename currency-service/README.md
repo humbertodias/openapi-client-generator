@@ -1,3 +1,7 @@
+Service
+
+    mvn spring-boot:run
+
 Source
 
 https://docs.awesomeapi.com.br/api-de-moedas

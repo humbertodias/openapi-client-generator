@@ -6,12 +6,12 @@
     <groupId>com.company</groupId>
     <artifactId>openapiapi-client-generator</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>openapiapi-client-generator</name>
+    <name>openapi-client-generator</name>
     <packaging>pom</packaging>
 
     <modules>
         <module>currency-service</module>
-        <module>currency-client</module>
+        <module>currency-bff</module>
         <module>rates-plugin-api</module>
         <module>rates-cli-api</module>
     </modules>
