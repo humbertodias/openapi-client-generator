@@ -1,5 +1,20 @@
-[Service](./currency-service/README.md)
+Requirements
 
-[BFF](./currency-bff/README.md)
+* java 11
+* docker
+* docker-compose
+* mvn 3
 
-[Front](./currency-front/README.md)
+Run
+
+    make build run
+
+Get
+
+    curl localhost:8006/rates/BRL
+
+Doc
+
+* [Service](./currency-service/README.md)
+* [BFF](./currency-bff/README.md)
+* [Front](./currency-front/README.md)

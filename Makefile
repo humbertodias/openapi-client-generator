@@ -1,12 +1,12 @@
 CODEGEN_MAVEN_URL=https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli
-CODEGEN_VERSION=$(shell curl -s $CODEGEN_MAVEN_URL/maven-metadata.xml | grep latest | cut -d ">" -f 2 | cut -d "<" -f 1)
+CODEGEN_LATEST_VERSION=$(shell curl -s $CODEGEN_MAVEN_URL/maven-metadata.xml | grep latest | cut -d ">" -f 2 | cut -d "<" -f 1)
 
 version:
-	@echo ${CODEGEN_VERSION}
-	@echo https://github.com/swagger-api/swagger-codegen/releases/tag/v${CODEGEN_VERSION}
+	@echo ${CODEGEN_LATEST_VERSION}
+	@echo https://github.com/swagger-api/swagger-codegen/releases/tag/v${CODEGEN_LATEST_VERSION}
 
 download:
-	curl -o swagger-codegen-cli.jar $CODEGEN_MAVEN_URL/${CODEGEN_VERSION}/swagger-codegen-cli-${CODEGEN_VERSION}.jar
+	curl -o swagger-codegen-cli.jar $CODEGEN_MAVEN_URL/${CODEGEN_LATEST_VERSION}/swagger-codegen-cli-${CODEGEN_LATEST_VERSION}.jar
 
 help:
 	java -jar swagger-codegen-cli.jar generate --help
