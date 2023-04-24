@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.*;
  * CurrenciesDate
  */
 @Validated
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-04-23T22:40:51.560423-03:00[America/Sao_Paulo]")
 @JacksonXmlRootElement(localName = "CurrenciesDate")
 @XmlRootElement(name = "CurrenciesDate")
 @XmlAccessorType(XmlAccessType.FIELD)

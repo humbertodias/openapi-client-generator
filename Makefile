@@ -19,10 +19,16 @@ api:
     --input-spec rates-api.json \
     --output rates-cli-api \
     --config spring-cloud.json \
+    --api-package com.company.rates.swagger.api \
+    --model-package com.company.rates.swagger.model \
+    --invoker-package com.company.rates.swagger.invoker \
     --lang spring \
     --library spring-cloud \
     --instantiation-types [date=LocalDate,date-time=LocalDateTime] \
     --import-mappings [LocalDate=java.time.LocalDate,LocalDateTime=java.time.LocalDateTime] \
+    --group-id com.company \
+    --artifact-id rates-cli-api \
+    --artifact-version 0.0.1-SNAPSHOT \
     --verbose
 
 clean:

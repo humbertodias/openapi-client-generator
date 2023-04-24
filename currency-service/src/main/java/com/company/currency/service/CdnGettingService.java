@@ -21,9 +21,10 @@ public class CdnGettingService {
     }
 
     public CurrenciesDate getCurrenciesRate(String date, String currencyCode) {
-        log.info("Getting rates from CDN date {} currencyCode {}", date, currencyCode);
-        var json = client.getCurrenciesRate(date, currencyCode);
-        return parser.parse(json, currencyCode);
+        var currencyCodeLower = currencyCode.toLowerCase();
+        log.info("Getting rates from CDN date {} currencyCode {}", date, currencyCodeLower);
+        var json = client.getCurrenciesRate(date, currencyCodeLower);
+        return parser.parse(json, currencyCodeLower);
     }
 
 }

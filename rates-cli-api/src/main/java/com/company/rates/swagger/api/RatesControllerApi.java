@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-04-23T22:40:51.560423-03:00[America/Sao_Paulo]")
 @Validated
 @Api(value = "RatesController", description = "the RatesController API")
 public interface RatesControllerApi {
