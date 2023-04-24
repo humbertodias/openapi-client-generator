@@ -1,6 +1,6 @@
 package com.company.currency.service;
 
-import com.company.currency.client.cdn.CdnClient;
+import com.company.currency.client.CdnClient;
 import com.company.currency.domain.cdn.Currencies;
 import com.company.currency.domain.cdn.CurrenciesDate;
 import com.company.currency.parser.CdnJsonParser;

@@ -1,4 +1,4 @@
-package com.company.currency.client.cdn;
+package com.company.currency.client;
 
 
 import com.company.currency.config.FeignConfig;
@@ -8,6 +8,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+// https://github.com/fawazahmed0/currency-api
 @FeignClient(name = "currencyCdnClient", url = "${cdn.url}", configuration = FeignConfig.class)
 public interface CdnClient {
 
