@@ -36,11 +36,11 @@ deactivate Front
 
 * Currencies
 ```
-curl http://localhost:8007/bff/currency
+curl http://localhost:8007/bff/currency/2023-04-01
 ```
 * Rate
 ```
-curl http://localhost:8007/bff/rate/BRL
+curl http://localhost:8007/bff/rate/2023-04-01/brl
 ```
 
 ### Doc

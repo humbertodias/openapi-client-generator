@@ -1,8 +1,8 @@
 server:
   port: 8006
 
-cbr:
-  url: "https://cbr.ru/scripts/XML_daily.asp"
+cdn:
+  url: "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1"
 
 app:
   rest:
@@ -16,6 +16,10 @@ spring:
 
 logging:
   level:
-    com.com.company.currency.client.cbr : DEBUG
+    com:
+      company:
+        currency:
+          client:
+            cdn: DEBUG
   file:
-    name: logs/CurrencyService.log
+    name: logs/currency-service.log

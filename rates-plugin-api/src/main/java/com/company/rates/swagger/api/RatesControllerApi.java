@@ -5,7 +5,7 @@
  */
 package com.company.rates.swagger.api;
 
-import com.company.rates.swagger.model.CurrencyRate;
+import com.company.rates.swagger.model.CurrenciesDate;
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -25,25 +25,25 @@ import java.util.List;
 import java.util.Map;
 
 @Validated
-@Api(value = "RateController", description = "the RateController API")
-public interface RateControllerApi {
+@Api(value = "RatesController", description = "the RatesController API")
+public interface RatesControllerApi {
 
-    @ApiOperation(value = "", nickname = "getCharCodes", notes = "", response = String.class, responseContainer = "List", tags={ "rate-controller", })
+    @ApiOperation(value = "", nickname = "getCurrencies", notes = "", response = String.class, responseContainer = "List", tags={ "rates-controller", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "OK", response = String.class, responseContainer = "List") })
-    @RequestMapping(value = "/rates/charCodes",
+    @RequestMapping(value = "/rates/{date}/currencies",
         produces = "*/*", 
         method = RequestMethod.GET)
-    ResponseEntity<List<String>> getCharCodes();
+    ResponseEntity<List<String>> getCurrencies(@ApiParam(value = "", required=true) @PathVariable("date") String date);
 
 
-    @ApiOperation(value = "", nickname = "getRateByCharCode", notes = "", response = CurrencyRate.class, tags={ "rate-controller", })
+    @ApiOperation(value = "", nickname = "getRateByCharCode", notes = "", response = CurrenciesDate.class, tags={ "rates-controller", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "OK", response = CurrencyRate.class) })
-    @RequestMapping(value = "/rates/{charCode}",
+        @ApiResponse(code = 200, message = "OK", response = CurrenciesDate.class) })
+    @RequestMapping(value = "/rates/{date}/{currencyCode}",
         produces = "*/*", 
         method = RequestMethod.GET)
-    ResponseEntity<CurrencyRate> getRateByCharCode(@ApiParam(value = "", required=true) @PathVariable("charCode") String charCode);
+    ResponseEntity<CurrenciesDate> getRateByCharCode(@ApiParam(value = "", required=true) @PathVariable("date") String date, @ApiParam(value = "", required=true) @PathVariable("currencyCode") String currencyCode);
 
 }
 

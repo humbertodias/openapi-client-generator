@@ -1,4 +1,4 @@
-package com.company.currency.client.cbr;
+package com.company.currency.config;
 
 import feign.Logger;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +9,6 @@ public class FeignConfig {
 
     @Bean
     Logger.Level feignLoggerLevel() {
-        return Logger.Level.BASIC;
+        return Logger.Level.FULL;
     }
 }

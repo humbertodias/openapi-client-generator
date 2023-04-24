@@ -11,15 +11,23 @@
     }
   ],
   "paths": {
-    "/rates/{charCode}": {
+    "/rates/{date}/{currencyCode}": {
       "get": {
         "tags": [
-          "rate-controller"
+          "rates-controller"
         ],
         "operationId": "getRateByCharCode",
         "parameters": [
           {
-            "name": "charCode",
+            "name": "date",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currencyCode",
             "in": "path",
             "required": true,
             "schema": {
@@ -33,7 +41,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/CurrencyRate"
+                  "$ref": "#/components/schemas/CurrenciesDate"
                 }
               }
             }
@@ -41,12 +49,22 @@
         }
       }
     },
-    "/rates/charCodes": {
+    "/rates/{date}/currencies": {
       "get": {
         "tags": [
-          "rate-controller"
+          "rates-controller"
         ],
-        "operationId": "getCharCodes",
+        "operationId": "getCurrencies",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -67,15 +85,21 @@
   },
   "components": {
     "schemas": {
-      "CurrencyRate": {
+      "CurrenciesDate": {
         "type": "object",
         "properties": {
-          "charCode": {
+          "date": {
             "type": "string"
           },
-          "value": {
-            "type": "number",
-            "format": "double"
+          "currency": {
+            "type": "string"
+          },
+          "values": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "format": "double"
+            }
           }
         }
       }

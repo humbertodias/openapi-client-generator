@@ -1,7 +1,7 @@
 package com.company.client.controller;
 
-import com.company.rates.swagger.api.RateControllerApiClient;
-import com.company.rates.swagger.model.CurrencyRate;
+import com.company.rates.swagger.api.RatesControllerApiClient;
+import com.company.rates.swagger.model.CurrenciesDate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,16 +15,16 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping(path = "${bff.rest.api.prefix}")
 public class CurrencyController {
-    private final RateControllerApiClient rateControllerApiClient;
+    private final RatesControllerApiClient rateControllerApiClient;
 
-    @GetMapping("/rate/{charCode}")
-    public ResponseEntity<CurrencyRate> getRateByCharCode(@PathVariable String charCode) {
-        return rateControllerApiClient.getRateByCharCode(charCode);
+    @GetMapping("/rate/{date}/{currencyCode}")
+    public ResponseEntity<CurrenciesDate> getRateByCharCode(@PathVariable String date, @PathVariable String currencyCode) {
+        return rateControllerApiClient.getRateByCharCode(date, currencyCode);
     }
 
-    @GetMapping("/currency")
-    public ResponseEntity<List<String>> getCharCodes() {
-        return rateControllerApiClient.getCharCodes();
+    @GetMapping("/currency/{date}")
+    public ResponseEntity<List<String>> getCharCodes(@PathVariable String date) {
+        return rateControllerApiClient.getCurrencies(date);
     }
 
 }
