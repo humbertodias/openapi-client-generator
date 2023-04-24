@@ -18,6 +18,7 @@ public class CdnJsonParser {
 
     public CurrenciesDate parse(String json, String currencyCode) {
         var rates = new CurrenciesDate();
+
         try {
             JsonNode rootNode = mapper.readValue(json, JsonNode.class);
             rates.setDate(rootNode.get("date").asText());

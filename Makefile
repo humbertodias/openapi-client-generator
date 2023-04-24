@@ -8,16 +8,19 @@ version:
 download:
 	curl -o swagger-codegen-cli.jar $CODEGEN_MAVEN_URL/${CODEGEN_LATEST_VERSION}/swagger-codegen-cli-${CODEGEN_LATEST_VERSION}.jar
 
+langs:
+	java -jar swagger-codegen-cli.jar langs
+
 help:
 	java -jar swagger-codegen-cli.jar generate --help
 
 config-help:
 	java -jar swagger-codegen-cli.jar config-help --lang java
 
-api:
+api-java:
 	java -jar swagger-codegen-cli.jar generate \
     --input-spec rates-api.json \
-    --output rates-cli-api \
+    --output rates-cli-java-api \
     --config spring-cloud.json \
     --api-package com.company.rates.swagger.api \
     --model-package com.company.rates.swagger.model \
@@ -31,10 +34,18 @@ api:
     --artifact-version 0.0.1-SNAPSHOT \
     --verbose
 
+api-ts:
+	java -jar swagger-codegen-cli.jar generate \
+    --input-spec rates-api.json \
+    --output rates-cli-ts-api \
+    --additional-properties=withSeparateModelsAndApi=true,modelPackage=models,apiPackage=api \
+    --lang typescript-axios \
+    --verbose
+
 clean:
 	mvn clean
 
-package:	api
+package:	api-java
 	mvn package
 
 build: package

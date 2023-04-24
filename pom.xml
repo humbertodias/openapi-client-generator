@@ -13,7 +13,7 @@
         <module>currency-service</module>
         <module>currency-bff</module>
         <module>rates-plugin-api</module>
-        <module>rates-cli-api</module>
+        <module>rates-cli-java-api</module>
     </modules>
 
 </project>
