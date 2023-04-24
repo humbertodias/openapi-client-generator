@@ -26,7 +26,6 @@ api:
     --verbose
 
 clean:
-	rm -rf rates-cli-api
 	mvn clean
 
 package:	api

@@ -18,7 +18,7 @@
         <version.swagger.codegen>3.0.33</version.swagger.codegen>
         <openapi.file>${project.basedir}/src/main/resources/api-docs.json</openapi.file>
         <generated-sources-java-path>main/java</generated-sources-java-path>
-        <generated-sources-path></generated-sources-path>
+        <generated-sources-path>${project.basedir}/src</generated-sources-path>
     </properties>
     <dependencies>
         <dependency>
@@ -69,80 +69,50 @@
                 <version>${version.swagger.codegen}</version>
                 <configuration>
                     <inputSpec>${openapi.file}</inputSpec>
-                    <language>spring</language>
-                    <library>spring-cloud</library>
-                    <addCompileSourceRoot>true</addCompileSourceRoot>
-                    <modelPackage>com.company.rates.swagger.model</modelPackage>
-                    <apiPackage>com.company.rates.swagger.api</apiPackage>
-                    <invokerPackage>com.company.rates.swagger.invoker</invokerPackage>
-                    <verbose>true</verbose>
-                    <generateApiTests>false</generateApiTests>
-                    <generateModelTests>false</generateModelTests>
-                    <generateSupportingFiles>false</generateSupportingFiles>
-                    <typeMappings>
-                        <typeMapping>date=LocalDate</typeMapping>
-                        <typeMapping>date-time=LocalDateTime</typeMapping>
-                    </typeMappings>
-                    <importMappings>
-                        <importMapping>LocalDate=java.time.LocalDate</importMapping>
-                        <importMapping>LocalDateTime=java.time.LocalDateTime</importMapping>
-                    </importMappings>
                     <configOptions>
-                        <generateForOpenFeign>true</generateForOpenFeign>
-                        <dateLibrary>legacy</dateLibrary>
-                        <defaultInterfaces>false</defaultInterfaces>
-                        <springBootVersion>2.6.5</springBootVersion>
-                        <hideGenerationTimestamp>false</hideGenerationTimestamp>
-                        <withXml>false</withXml>
+                        <sourceFolder>${generated-sources-java-path}</sourceFolder>
                     </configOptions>
+                    <output>${generated-sources-path}</output>
+                    <language>java</language>
                 </configuration>
-
-<!--                <configuration>-->
-<!--                    <inputSpec>${openapi.file}</inputSpec>-->
-<!--                    <configOptions>-->
-<!--                        <sourceFolder>${generated-sources-java-path}</sourceFolder>-->
-<!--                    </configOptions>-->
-<!--                    <output>${generated-sources-path}</output>-->
-<!--                    <language>java</language>-->
-<!--                </configuration>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>generate-swagger-spring</id>-->
-<!--                        <phase>generate-sources</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>generate</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <inputSpec>${openapi.file}</inputSpec>-->
-<!--                            <language>spring</language>-->
-<!--                            <library>spring-cloud</library>-->
-<!--                            <addCompileSourceRoot>true</addCompileSourceRoot>-->
-<!--                            <modelPackage>com.company.rates.swagger.model</modelPackage>-->
-<!--                            <apiPackage>com.company.rates.swagger.api</apiPackage>-->
-<!--                            <invokerPackage>com.company.rates.swagger.invoker</invokerPackage>-->
-<!--                            <verbose>true</verbose>-->
-<!--                            <generateApiTests>false</generateApiTests>-->
-<!--                            <generateModelTests>false</generateModelTests>-->
-<!--                            <generateSupportingFiles>false</generateSupportingFiles>-->
-<!--                            <typeMappings>-->
-<!--                                <typeMapping>date=LocalDate</typeMapping>-->
-<!--                                <typeMapping>date-time=LocalDateTime</typeMapping>-->
-<!--                            </typeMappings>-->
-<!--                            <importMappings>-->
-<!--                                <importMapping>LocalDate=java.time.LocalDate</importMapping>-->
-<!--                                <importMapping>LocalDateTime=java.time.LocalDateTime</importMapping>-->
-<!--                            </importMappings>-->
-<!--                            <configOptions>-->
-<!--                                <generateForOpenFeign>true</generateForOpenFeign>-->
-<!--                                <dateLibrary>legacy</dateLibrary>-->
-<!--                                <defaultInterfaces>false</defaultInterfaces>-->
-<!--                                <springBootVersion>2.6.5</springBootVersion>-->
-<!--                                <hideGenerationTimestamp>false</hideGenerationTimestamp>-->
-<!--                                <withXml>false</withXml>-->
-<!--                            </configOptions>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
+                <executions>
+                    <execution>
+                        <id>generate-swagger-spring</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${openapi.file}</inputSpec>
+                            <language>spring</language>
+                            <library>spring-cloud</library>
+                            <addCompileSourceRoot>true</addCompileSourceRoot>
+                            <modelPackage>com.company.rates.swagger.model</modelPackage>
+                            <apiPackage>com.company.rates.swagger.api</apiPackage>
+                            <invokerPackage>com.company.rates.swagger.invoker</invokerPackage>
+                            <verbose>true</verbose>
+                            <generateApiTests>false</generateApiTests>
+                            <generateModelTests>false</generateModelTests>
+                            <generateSupportingFiles>false</generateSupportingFiles>
+                            <typeMappings>
+                                <typeMapping>date=LocalDate</typeMapping>
+                                <typeMapping>date-time=LocalDateTime</typeMapping>
+                            </typeMappings>
+                            <importMappings>
+                                <importMapping>LocalDate=java.time.LocalDate</importMapping>
+                                <importMapping>LocalDateTime=java.time.LocalDateTime</importMapping>
+                            </importMappings>
+                            <configOptions>
+                                <generateForOpenFeign>true</generateForOpenFeign>
+                                <dateLibrary>legacy</dateLibrary>
+                                <defaultInterfaces>false</defaultInterfaces>
+                                <springBootVersion>2.6.5</springBootVersion>
+                                <hideGenerationTimestamp>false</hideGenerationTimestamp>
+                                <withXml>false</withXml>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
 
         </plugins>
