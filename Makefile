@@ -20,8 +20,8 @@ config-help:
 api-java:
 	java -jar swagger-codegen-cli.jar generate \
     --input-spec rates-api.json \
-    --output rates-cli-java-api \
-    --config spring-cloud.json \
+    --output back/rates-cli-java-api \
+    --config back/spring-cloud.json \
     --api-package com.company.rates.swagger.api \
     --model-package com.company.rates.swagger.model \
     --invoker-package com.company.rates.swagger.invoker \
@@ -37,16 +37,16 @@ api-java:
 api-ts:
 	java -jar swagger-codegen-cli.jar generate \
     --input-spec rates-api.json \
-    --output rates-cli-ts-api \
+    --output front/rates-cli-ts-api \
     --additional-properties=withSeparateModelsAndApi=true,modelPackage=models,apiPackage=api \
     --lang typescript-axios \
     --verbose
 
 clean:
-	mvn clean
+	cd back && mvn clean
 
 package:	api-java
-	mvn package
+	cd back && mvn package
 
 build: package
 	docker-compose build --parallel

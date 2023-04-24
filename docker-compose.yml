@@ -3,14 +3,14 @@ version: '3.8'
 services:
 
   currency-service:
-    build: currency-service
+    build: back/currency-service
     ports:
       - "8006:8006"
     networks:
       - back
 
   currency-bff:
-    build: currency-bff
+    build: back/currency-bff
     depends_on:
       currency-service:
         condition: service_healthy
@@ -22,7 +22,7 @@ services:
       - back
 
   currency-front:
-    build: currency-front
+    build: front/currency-front
     depends_on:
       currency-bff:
         condition: service_healthy
