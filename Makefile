@@ -1,12 +1,12 @@
-CODEGEN_MAVEN_URL=https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli
-CODEGEN_LATEST_VERSION=$(shell curl -s $CODEGEN_MAVEN_URL/maven-metadata.xml | grep latest | cut -d ">" -f 2 | cut -d "<" -f 1)
+CODEGEN_MAVEN_URL:=https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli
+CODEGEN_LATEST_VERSION:=$(shell curl -s ${CODEGEN_MAVEN_URL}/maven-metadata.xml | grep latest | cut -d ">" -f 2 | cut -d "<" -f 1)
 
 version:
 	@echo ${CODEGEN_LATEST_VERSION}
 	@echo https://github.com/swagger-api/swagger-codegen/releases/tag/v${CODEGEN_LATEST_VERSION}
 
 download:
-	curl -o swagger-codegen-cli.jar $CODEGEN_MAVEN_URL/${CODEGEN_LATEST_VERSION}/swagger-codegen-cli-${CODEGEN_LATEST_VERSION}.jar
+	curl -o swagger-codegen-cli.jar ${CODEGEN_MAVEN_URL}/${CODEGEN_LATEST_VERSION}/swagger-codegen-cli-${CODEGEN_LATEST_VERSION}.jar
 
 langs:
 	java -jar swagger-codegen-cli.jar langs
@@ -46,7 +46,7 @@ clean:
 	cd back && mvn clean
 
 package:	api-java
-	cd back && mvn package
+	cd back && MAVEN_OPTS="--add-opens=java.base/java.util=ALL-UNNAMED" mvn package
 
 build: package
 	docker-compose build --parallel
