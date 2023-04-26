@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="msg"/>
+    <HelloWorld :msg="msg"/>
   </div>
 </template>
 
@@ -12,9 +12,6 @@ import { Configuration, RatesControllerApi } from "rates-cli";
 const configuration = new Configuration({
   basePath: "http://localhost:8006" ,
 });
-let api = new RatesControllerApi(configuration);
-let currencies = api.getCurrencies("2023-04-01");
-console.log(currencies);
 
 export default {
   name: 'App',
@@ -23,9 +20,13 @@ export default {
   },
   data() {
     return {
-      msg : currencies
+      msg: 'Welcome to Your Vue.js App'
     }
-  }
+  }, async mounted() {
+    let api = new RatesControllerApi(configuration);
+    let currencies = await api.getCurrencies("2023-04-01");
+    this.msg = currencies.data.slice(1,10).toString()
+  },
 }
 </script>
 
