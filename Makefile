@@ -38,7 +38,9 @@ api-ts:
 	java -jar swagger-codegen-cli.jar generate \
     --input-spec rates-api.json \
     --output front/rates-cli-ts-api \
-    --additional-properties=withSeparateModelsAndApi=true,modelPackage=models,apiPackage=api \
+    --artifact-id rates-cli-ts-api \
+    --artifact-version 0.0.1 \
+    --additional-properties=withSeparateModelsAndApi=true,modelPackage=models,apiPackage=api,supportsES6=true \
     --lang typescript-axios \
     --verbose
 
@@ -55,7 +57,7 @@ network-rm:
 	docker network ls --filter=name="openapi-*" -q | xargs -r docker network rm
 
 run:
-	docker-compose up
+	docker-compose up -d
 
 stop:
 	docker-compose down -v
