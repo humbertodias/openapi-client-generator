@@ -1,0 +1,14 @@
+{
+  "generateForOpenFeign": true,
+  "dateLibrary": "java11",
+  "defaultInterfaces": false,
+  "useGzipFeature": true,
+  "wiremock": true,
+  "springBootVersion": "2.7.5",
+  "withXml": true,
+  "hideGenerationTimestamp": true,
+  "useOptional": true,
+  "useBeanValidation": true,
+  "async": false,
+  "serializableModel": true
+}

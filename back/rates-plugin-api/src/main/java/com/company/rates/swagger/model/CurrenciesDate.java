@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.io.Serializable;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -18,7 +19,9 @@ import javax.validation.constraints.*;
 @Validated
 
 
-public class CurrenciesDate   {
+public class CurrenciesDate  implements Serializable  {
+  private static final long serialVersionUID = 1L;
+
   @JsonProperty("date")
   private String date = null;
 

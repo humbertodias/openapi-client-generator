@@ -21,16 +21,16 @@ services:
     networks:
       - back
 
-  currency-front:
-    build: front/currency-front
-    depends_on:
-      currency-bff:
-        condition: service_healthy
-    ports:
-      - "3000:3000"
-    networks:
-      - front
-      - back
+#  currency-front:
+#    build: front/currency-front
+#    depends_on:
+#      currency-bff:
+#        condition: service_healthy
+#    ports:
+#      - "3000:3000"
+#    networks:
+#      - front
+#      - back
 
 networks:
   front:

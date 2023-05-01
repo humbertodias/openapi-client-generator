@@ -6,11 +6,7 @@
 package com.company.rates.swagger.api;
 
 import com.company.rates.swagger.model.CurrenciesDate;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,10 +19,8 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.bind.annotation.CookieValue;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -34,14 +28,6 @@ import java.util.Optional;
 @Validated
 @Api(value = "RatesController", description = "the RatesController API")
 public interface RatesControllerApi {
-
-    Logger log = LoggerFactory.getLogger(RatesControllerApi.class);
-
-    Optional<ObjectMapper> getObjectMapper();
-
-    Optional<HttpServletRequest> getRequest();
-
-    
 
     @ApiOperation(value = "", nickname = "getCurrencies", notes = "", response = String.class, responseContainer = "List", tags={ "rates-controller", })
     @ApiResponses(value = { 

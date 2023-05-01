@@ -30,16 +30,18 @@ deactivate Front
 
 ### Run
 
-    make build run
+```shell
+make build run
+```
 
 ### Get
 
 * Currencies
-```
+```shell
 curl http://localhost:8007/bff/currency/2023-04-01
 ```
 * Rate
-```
+```shell
 curl http://localhost:8007/bff/rate/2023-04-01/brl
 ```
 

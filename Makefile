@@ -21,14 +21,12 @@ api-java:
 	java -jar swagger-codegen-cli.jar generate \
     --input-spec rates-api.json \
     --output back/rates-cli-java-api \
-    --config back/spring-cloud.json \
+    --config back/spring-cloud-config.json \
     --api-package com.company.rates.swagger.api \
     --model-package com.company.rates.swagger.model \
     --invoker-package com.company.rates.swagger.invoker \
     --lang spring \
     --library spring-cloud \
-    --instantiation-types [date=LocalDate,date-time=LocalDateTime] \
-    --import-mappings [LocalDate=java.time.LocalDate,LocalDateTime=java.time.LocalDateTime] \
     --group-id com.company \
     --artifact-id rates-cli-api \
     --artifact-version 0.0.1-SNAPSHOT \
@@ -48,7 +46,7 @@ clean:
 	cd back && mvn clean
 
 package:	api-java
-	cd back && MAVEN_OPTS="--add-opens=java.base/java.util=ALL-UNNAMED" mvn package
+	cd back && mvn package
 
 build: package
 	docker-compose build --parallel
