@@ -1,0 +1,7 @@
+README.md
+pom.xml
+src/main/java/com/company/rates/swagger/api/RatesControllerApi.java
+src/main/java/com/company/rates/swagger/api/RatesControllerApiClient.java
+src/main/java/com/company/rates/swagger/model/CurrenciesDate.java
+src/main/java/org/openapitools/configuration/ApiKeyRequestInterceptor.java
+src/main/java/org/openapitools/configuration/ClientConfiguration.java

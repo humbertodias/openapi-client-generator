@@ -1,44 +1,47 @@
 package com.company.rates.swagger.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
 import java.io.Serializable;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.xml.bind.annotation.*;
+
+import java.util.*;
+import javax.annotation.Generated;
 
 /**
  * CurrenciesDate
  */
-@Validated
+
 @JacksonXmlRootElement(localName = "CurrenciesDate")
 @XmlRootElement(name = "CurrenciesDate")
 @XmlAccessorType(XmlAccessType.FIELD)
 
-public class CurrenciesDate  implements Serializable  {
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+public class CurrenciesDate implements Serializable {
+
   private static final long serialVersionUID = 1L;
 
-  @JsonProperty("date")
   @JacksonXmlProperty(localName = "date")
-  private String date = null;
+  private String date;
 
-  @JsonProperty("currency")
   @JacksonXmlProperty(localName = "currency")
-  private String currency = null;
+  private String currency;
 
-  @JsonProperty("values")
   @JacksonXmlProperty(localName = "values")
   @Valid
-  private Map<String, Double> values = null;
+  private Map<String, Double> values = new HashMap<>();
 
   public CurrenciesDate date(String date) {
     this.date = date;
@@ -48,10 +51,11 @@ public class CurrenciesDate  implements Serializable  {
   /**
    * Get date
    * @return date
-   **/
-  @ApiModelProperty(value = "")
+  */
   
-    public String getDate() {
+  @Schema(name = "date", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("date")
+  public String getDate() {
     return date;
   }
 
@@ -67,10 +71,11 @@ public class CurrenciesDate  implements Serializable  {
   /**
    * Get currency
    * @return currency
-   **/
-  @ApiModelProperty(value = "")
+  */
   
-    public String getCurrency() {
+  @Schema(name = "currency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("currency")
+  public String getCurrency() {
     return currency;
   }
 
@@ -85,7 +90,7 @@ public class CurrenciesDate  implements Serializable  {
 
   public CurrenciesDate putValuesItem(String key, Double valuesItem) {
     if (this.values == null) {
-      this.values = new HashMap<String, Double>();
+      this.values = new HashMap<>();
     }
     this.values.put(key, valuesItem);
     return this;
@@ -94,10 +99,11 @@ public class CurrenciesDate  implements Serializable  {
   /**
    * Get values
    * @return values
-   **/
-  @ApiModelProperty(value = "")
+  */
   
-    public Map<String, Double> getValues() {
+  @Schema(name = "values", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("values")
+  public Map<String, Double> getValues() {
     return values;
   }
 
@@ -105,9 +111,8 @@ public class CurrenciesDate  implements Serializable  {
     this.values = values;
   }
 
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -129,7 +134,6 @@ public class CurrenciesDate  implements Serializable  {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CurrenciesDate {\n");
-    
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    values: ").append(toIndentedString(values)).append("\n");
@@ -141,10 +145,11 @@ public class CurrenciesDate  implements Serializable  {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 }
+

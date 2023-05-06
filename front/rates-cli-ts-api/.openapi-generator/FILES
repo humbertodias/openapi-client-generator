@@ -1,0 +1,11 @@
+.gitignore
+.npmignore
+api.ts
+api/rates-controller-api.ts
+base.ts
+common.ts
+configuration.ts
+git_push.sh
+index.ts
+models/currencies-date.ts
+models/index.ts
