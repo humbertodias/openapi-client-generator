@@ -1,5 +1,6 @@
 server:
     port: 8007
+debug: true
 
 feign:
     client:
@@ -14,6 +15,8 @@ logging:
 
 openAPIDefinition:
     url: http://localhost:8006
+ratesController:
+    url: http://localhost:8086
 
 bff:
     rest:

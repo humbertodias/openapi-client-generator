@@ -62,3 +62,7 @@ stop:
 
 rmi:
 	docker images --filter=reference="currency-*" -q | xargs -r docker rmi -f
+
+run-it:
+	curl http://localhost:8007/bff/currency/2023-04-01
+	curl http://localhost:8007/bff/rate/2023-04-01/brl

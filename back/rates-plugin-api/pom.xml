@@ -15,7 +15,10 @@
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>2021.0.5</spring-cloud.version>
+        <springdoc.version>1.6.14</springdoc.version>
+
         <version.swagger.codegen>3.0.42</version.swagger.codegen>
+        <openapi-generator-version>6.5.0</openapi-generator-version>
         <openapi.file>${project.basedir}/src/main/resources/api-docs.json</openapi.file>
         <generated-sources-java-path>main/java</generated-sources-java-path>
         <generated-sources-path>${project.basedir}/src</generated-sources-path>
@@ -52,6 +55,20 @@
         </dependency>
 
 
+        <!--SpringDoc dependencies -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${springdoc.version}</version>
+        </dependency>
+        <!-- @Nullable annotation -->
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>0.2.6</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -72,6 +89,7 @@
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>io.swagger.codegen.v3</groupId>
                 <artifactId>swagger-codegen-maven-plugin</artifactId>
@@ -99,6 +117,56 @@
                             <modelPackage>com.company.rates.swagger.model</modelPackage>
                             <apiPackage>com.company.rates.swagger.api</apiPackage>
                             <invokerPackage>com.company.rates.swagger.invoker</invokerPackage>
+                            <verbose>true</verbose>
+                            <generateApiTests>false</generateApiTests>
+                            <generateModelTests>false</generateModelTests>
+                            <generateSupportingFiles>false</generateSupportingFiles>
+                            <configOptions>
+                                <generateForOpenFeign>true</generateForOpenFeign>
+                                <dateLibrary>java11</dateLibrary>
+                                <defaultInterfaces>false</defaultInterfaces>
+                                <userGzipFeature>true</userGzipFeature>
+                                <wireMock>true</wireMock>
+                                <springBootVersion>2.7.5</springBootVersion>
+                                <withXml>false</withXml>
+                                <hideGenerationTimestamp>false</hideGenerationTimestamp>
+                                <useOptional>true</useOptional>
+                                <useBeanValidation>true</useBeanValidation>
+                                <async>false</async>
+                                <serializableModel>true</serializableModel>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>${openapi-generator-version}</version>
+                <configuration>
+                    <inputSpec>${openapi.file}</inputSpec>
+                    <configOptions>
+                        <sourceFolder>${generated-sources-java-path}</sourceFolder>
+                    </configOptions>
+                    <output>${generated-sources-path}</output>
+                    <generatorName>java</generatorName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-openapi-spring</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${openapi.file}</inputSpec>
+                            <generatorName>spring</generatorName>
+                            <library>spring-cloud</library>
+                            <addCompileSourceRoot>true</addCompileSourceRoot>
+                            <modelPackage>com.company.rates.openapi.model</modelPackage>
+                            <apiPackage>com.company.rates.openapi.api</apiPackage>
+                            <invokerPackage>com.company.rates.openapi.invoker</invokerPackage>
                             <verbose>true</verbose>
                             <generateApiTests>false</generateApiTests>
                             <generateModelTests>false</generateModelTests>
