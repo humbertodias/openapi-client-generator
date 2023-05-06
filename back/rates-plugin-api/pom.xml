@@ -129,7 +129,7 @@
                                 <wireMock>true</wireMock>
                                 <springBootVersion>2.7.5</springBootVersion>
                                 <withXml>false</withXml>
-                                <hideGenerationTimestamp>false</hideGenerationTimestamp>
+                                <hideGenerationTimestamp>true</hideGenerationTimestamp>
                                 <useOptional>true</useOptional>
                                 <useBeanValidation>true</useBeanValidation>
                                 <async>false</async>
@@ -179,7 +179,7 @@
                                 <wireMock>true</wireMock>
                                 <springBootVersion>2.7.5</springBootVersion>
                                 <withXml>false</withXml>
-                                <hideGenerationTimestamp>false</hideGenerationTimestamp>
+                                <hideGenerationTimestamp>true</hideGenerationTimestamp>
                                 <useOptional>true</useOptional>
                                 <useBeanValidation>true</useBeanValidation>
                                 <async>false</async>

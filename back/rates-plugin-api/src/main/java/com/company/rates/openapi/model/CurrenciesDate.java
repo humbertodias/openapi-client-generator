@@ -21,7 +21,7 @@ import javax.annotation.Generated;
  * CurrenciesDate
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-05T22:39:22.208308-03:00[America/Sao_Paulo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class CurrenciesDate implements Serializable {
 
   private static final long serialVersionUID = 1L;
