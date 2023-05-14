@@ -1,7 +1,7 @@
 FROM hldtux/maven-rates-plugin-api as build
 WORKDIR /build
 COPY . .
-RUN mvn package
+RUN mvn package -X
 
 FROM eclipse-temurin:11-jdk-focal as run
 ARG JAR_NAME=currency-bff
