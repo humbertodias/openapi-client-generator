@@ -8,6 +8,9 @@ feign:
         config:
             default:
                 loggerLevel: full
+    httpclient:
+        disable-ssl-validation: true
+
 logging:
     level:
         com:
