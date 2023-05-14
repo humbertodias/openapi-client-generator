@@ -13,7 +13,7 @@ logging:
                 client: DEBUG
 
 openAPIDefinition:
-    url: http://localhost:8006
+    url: ${OPENAPIDEFINITION_URL:#{'http://localhost:8006'}}
 
 bff:
     rest:
