@@ -11,6 +11,14 @@ feign:
     httpclient:
         disable-ssl-validation: true
 
+    compression:
+        request:
+            enabled: 'true'
+            min-request-size: '2048'
+            mime-types: text/xml,application/xml,application/json
+        response:
+            enabled: 'true'
+
 logging:
     level:
         com:
