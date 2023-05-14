@@ -1,5 +1,5 @@
 server:
-  port: 8006
+  port: ${PORT:8006}
 
 cdn:
   url: "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1"
