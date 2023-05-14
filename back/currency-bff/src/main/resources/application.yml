@@ -1,6 +1,8 @@
 server:
     port: ${PORT:8007}
 
+debug: true
+
 feign:
     client:
         config:
