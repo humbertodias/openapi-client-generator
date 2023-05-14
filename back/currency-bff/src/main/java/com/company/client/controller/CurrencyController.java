@@ -6,7 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;@CrossOrigin(origins = "*", allowedHeaders = "*")
+import java.util.List;
+
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "${bff.rest.api.prefix}")
@@ -21,6 +23,11 @@ public class CurrencyController {
     @GetMapping("/currency/{date}")
     public ResponseEntity<List<String>> getCharCodes(@PathVariable String date) {
         return rateControllerApiClient.getCurrencies(date);
+    }
+
+    @GetMapping
+    public ResponseEntity<String> test(){
+        return ResponseEntity.ok("OK");
     }
 
 }
