@@ -6,6 +6,8 @@ services:
     build: back/currency-service
     ports:
       - "8006:8006"
+    healthcheck:
+      test: curl --silent --fail --request GET http://localhost:8006/actuator/health | grep UP || exit 1
     networks:
       - back
 
