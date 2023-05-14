@@ -1,7 +1,7 @@
-#FROM maven:3-jdk-11 as build
-#WORKDIR /build
-#COPY . .
-#RUN mvn package
+FROM maven:3-jdk-11 as build
+WORKDIR /build
+COPY . .
+RUN mvn package
 
 FROM eclipse-temurin:11-jdk-focal as run
 WORKDIR /run
