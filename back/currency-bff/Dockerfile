@@ -1,4 +1,4 @@
-FROM maven:3-jdk-11 as build
+FROM hldtux/maven-rates-plugin-api as build
 WORKDIR /build
 COPY . .
 RUN mvn package
